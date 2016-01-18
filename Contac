@@ -1,0 +1,138 @@
+import.java.util.scanner;
+
+public class example6_2
+{
+public static void main(String[] Args)
+{
+clsContact test_Contact = new clsContact();
+String str_inputLastName = null;
+String str_inputPhone = null;
+String str_inputZip = null;
+
+//scanner blow
+Scanner SC = new Scanner(System.in);
+
+// do variables and commands below
+do
+{
+System.out.println(" Enter last name : ");
+str_inputLastName = SC.nextLine();
+}while(!test_Contact.setLastName( str_inputLastName ));
+
+do
+{
+System.out.println(" Enter First name: ");
+str_inputFirstName= SC.nextLine();
+}while(!test_Contact.setFirstName( str_inputFirstName) );
+
+
+do
+{
+System.out.println(" Enter Middle name: ");
+str_inputMiddleName = SC.nextLine();
+}while(!test_Contact.setMiddleName( str_inputMiddleName) );
+
+do
+{
+System.out.println(" Enter Phone Number: ");
+str_inputPhone = SC.nextLine();
+} while(!test_Contact.setPhone( str_inputPhone ));
+
+do
+{
+System.out.println(" Enter zip code: ");
+str_inputZip = SC.nextLine();
+}while(!test_Contact.setZip( str_inputZip) );
+
+
+
+
+
+}//main method end
+
+public class clsContact
+{
+clsContact{
+}//clsContact Constructor end
+public static boolean setLastName( String str_inputN)
+{
+if (!str_inputN.matches("^[A-Za-z]+$") )
+{
+System.out.println(" you entered an invalid character in the last name");
+}else{
+m_str_NameL = str_inputN;
+}//if else end
+}//boolean setLastName end
+
+public static boolean setFirstName( String str_inputN)
+{
+if (!str_inputN.matches("^[A-Za-z]+$") )
+{
+System.out.println(" you entered an invalid character in the first name");
+}else{
+m_str_NameF = str_inputN;
+}//if else end
+}//boolean setFirstName end
+
+public static boolean setMiddleName( String str_inputN)
+{
+if (!str_inputN.matches("^[A-Za-z]+$") )
+{
+System.out.println("you entered an invalid character in the middle name");
+}else{
+m_str_NameM = str_inputN;
+}//if else end
+}//boolean setMiddleName end
+
+public static boolean setPhone( String phoneNo)
+{
+boolean blnIsValid= false
+       //check for ten digits
+       if (phoneNo.matches("\\d{10}")) {blnIsValid=true};
+        //validating phone number with -, . or spaces
+        else if(phoneNo.matches("\\d{3}[-\\.\\s]\\d{3}[-\\.\\s]\\d{4}")) {blnIsValid=true};
+        //validating phone number with extension length from 3 to 5
+        else if(phoneNo.matches("\\d{3}-\\d{3}-\\d{4}\\s(x|(ext))\\d{3,5}")) {blnIsValid=true};
+        //validating phone number where area code is in braces ()
+        else if(phoneNo.matches("\\(\\d{3}\\)-\\d{3}-\\d{4}")) {blnIsValid=true};      
+    }
+if (!blnIsValid)
+{
+//input was invalid
+System.out.println(" you entered an invalid phone");
+return false;
+}else{
+m_str_Phone = str_inputN;
+return true;
+
+}//if else end
+}//boolean setPhone end
+
+public string getLastName ()
+{
+return m_str_NameL;
+}//get lastname end
+
+public string getFirstName ()
+{
+return m_str_NameF;
+}//get firstname end
+
+public string getMiddleName ()
+{
+return m_str_NameM;
+}//get Middlename end
+
+public string getPhone ()
+{
+return m_str_Phone;
+}//get Phone end
+
+private String m_str_NameL;
+private String m_str_NameF;
+private String m_str_NmaeM;
+private String m_str_Phone;
+
+
+}//clsContact end
+}// example6_2 end
